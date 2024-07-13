@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 
 // Serve static files from the "public" directory
-app.use(express.static('views'));
+app.use(express.static('public'));
 
 // Route to render the index.ejs file
 app.get('/', (req, res) => {
