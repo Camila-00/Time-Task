@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Timer</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/index.css">
+  <link rel="icon" type="image/png" href="https://icons.iconarchive.com/icons/flat-icons.com/flat/512/Clock-icon.png">
+
+</head>
+<body>
+  <div class="menu-bar">
+    <div class="row">
+      <div class="col-sm-6">
+        <span class="logo">Time Task</span>
+      </div>
+      <div class="col-sm-6 text-right">
+        <button id="openModal" class="btn btn-link" data-toggle="modal" data-target="#taskModal">Time a Task</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="card">
+    <p class="time-text">
+        <span id="time"></span>
+        <span id="ampm" class="time-sub-text"></span>
+    </p>
+    <p id="date" class="day-text"></p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" stroke-width="0" fill="currentColor" stroke="currentColor" class="moon">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </svg>
+  </div>
+
+  <div class="card1">Random Facts</div>
+
+  <div class="card2">
+    <a href="https://www.instagram.com/markcamila0/" class="socialContainer containerOne" target="_blank">
+      <svg class="socialSvg instagramSvg" viewBox="0 0 16 16"> <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path> </svg>
+    </a>
+    
+    <a href="https://www.facebook.com/Camila.marc1" class="socialContainer containerTwo" target="_blank">
+      <svg class="socialSvg facebookSvg" viewBox="0 0 16 16"> <path d="M12.5 0H3.5C1.57 0 0 1.57 0 3.5v9c0 1.93 1.57 3.5 3.5 3.5h4.324V9.804h-1.892V7.413h1.892v-1.55c0-1.87 1.14-2.888 2.806-2.888.803 0 1.49.06 1.693.087v1.95h-1.16c-.911 0-1.09.433-1.09 1.07v1.403h2.177l-.284 2.39H9.545V16h3.955c1.93 0 3.5-1.57 3.5-3.5V3.5C16 1.57 14.43 0 12.5 0z"></path> </svg>
+                  </a>
+      
+    <a href="https://www.linkedin.com/in/mark-camila/" class="socialContainer containerThree" target="_blank">
+      <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+    </a>
+    
+    <a href="https://github.com/Camila-00" class="socialContainer containerFour" target="_blank">
+      <svg class="socialSvg githubSvg" viewBox="0 0 16 16"> <path d="M8 0a8 8 0 00-2.534 15.59c.4.074.546-.174.546-.386 0-.19-.007-.692-.011-1.36-2.222.481-2.695-1.072-2.695-1.072-.364-.924-.887-1.17-.887-1.17-.725-.494.055-.485.055-.485.802.057 1.223.823 1.223.823.713 1.22 1.869.866 2.33.662.072-.516.277-.866.504-1.066-1.773-.2-3.634-.887-3.634-3.946 0-.872.312-1.588.823-2.148-.083-.202-.36-1.016.078-2.117 0 0 .67-.215 2.2.82a7.65 7.65 0 012.005-.27c.68.004 1.364.092 2.005.27 1.53-1.035 2.198-.82 2.198-.82.44 1.101.16 1.915.08 2.117.512.56.82 1.276.82 2.148 0 3.067-1.865 3.742-3.645 3.938.287.247.54.733.54 1.478 0 1.067-.01 1.927-.01 2.191 0 .214.145.464.55.385A8.004 8.004 0 008 0z"></path> </svg>
+    </a>
+  </div>  
+
+
+  <div class="container">
+    <!-- Modal for inputting task details -->
+    <div id="taskModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Time a Task</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="taskName">Task Name:</label>
+                <input type="text" class="form-control" id="taskName" placeholder="Enter task name">
+              </div>
+              <div class="form-group">
+                <label for="taskType">Task Type:</label>
+                <select class="form-control" id="taskType">
+                  <option value="stopwatch">Stopwatch</option>
+                  <option value="timer">Timer</option>
+                </select>
+              </div>
+              <!-- Timer setup in the modal -->
+              <div id="timerSetup" class="form-group hidden">
+                <label for="timerHours">Hours:</label>
+                <input type="number" class="form-control" id="timerHours" min="0">
+                <label for="timerMinutes">Minutes:</label>
+                <input type="number" class="form-control" id="timerMinutes" min="0" max="59">
+                <label for="timerSeconds">Seconds:</label>
+                <input type="number" class="form-control" id="timerSeconds" min="0" max="59">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="addTask">Add Task</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Separate containers for controls and task history -->
+    <div class="container-controls">
+      <!-- Stopwatch display and controls -->
+      <div class="stopwatch hidden" id="stopwatch">
+        <h2 id="taskNameDisplay"></h2>
+        <div class="counter">
+          <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="milliseconds">00</span>
+        </div>
+        <div class="controls">
+          <button id="start" class="btn btn-primary">Start</button>
+          <button id="stop" class="btn btn-danger">Stop</button>
+          <button id="reset" class="btn btn-secondary">Reset</button>
+        </div>
+      </div>
+      
+      <!-- Timer display and controls -->
+      <div class="timer hidden" id="timer">
+        <h2 id="taskNameDisplayTimer"></h2>
+        <div class="counter">
+          <span id="timerHoursDisplay">00</span>:<span id="timerMinutesDisplay">00</span>:<span id="timerSecondsDisplay">00</span>
+        </div>
+        <div class="controls">
+          <button id="timerStart" class="btn btn-primary">Start</button>
+          <button id="timerStop" class="btn btn-danger">Stop</button>
+          <button id="timerReset" class="btn btn-secondary">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-history">
+      <!-- Task history section -->
+      <div class="task-history">
+        <h2>Task History</h2>
+        <ul id="taskList" class="list-group">
+          <!-- Tasks will be added dynamically here -->
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
+
+  
+
+  <!-- Bootstrap JS and custom script -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="/index.js"></script>
+</body>
+</html>

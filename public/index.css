@@ -1,0 +1,441 @@
+/* Basic styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center; /* Center align horizontally */
+  align-items: center; /* Center align vertically */
+  height: 100vh; /* Full viewport height */
+}
+
+.container {
+  width: 90%; /* Adjusted width */
+  max-width: 1000px; /* Increased max-width for larger screens */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 50px; /* Increase top margin for space */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center items horizontally */
+  margin-left: 200px;
+}
+
+.container-controls,
+.container-history {
+  flex: 1; /* Equal distribution of space between controls and history */
+  padding: 10px; /* Padding for gap between containers */
+}
+
+.container-controls {
+  margin-right: 20px; /* Add margin for gap between containers */
+}
+
+/* Menu bar styles */
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.menu-bar .logo {
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: 25px;
+}
+
+.menu-bar .btn-link {
+  text-decoration: none;
+  font-size: 30px;
+  color: #000000;
+  position: relative;
+  overflow: hidden; /* Ensures the animation stays within the text bounds */
+  cursor: initial; /* Ensures the cursor does not change */
+  margin-right: 15px;
+}
+
+.menu-bar .btn-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px; /* Underline thickness */
+  background-color: mediumturquoise; /* Underline color */
+  transform: scaleX(0); /* Start with no width */
+  transform-origin: bottom left; /* Expand from bottom left corner */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for transform */
+}
+
+.menu-bar .btn-link:hover::after {
+  transform: scaleX(1); /* Expand the underline to full width on hover */
+}
+
+
+
+
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050; /* Ensure it's above .card2 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-dialog {
+  margin: 15% auto;
+  max-width: 400px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  border-radius: 8px;
+}
+
+.modal-header {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-title {
+  margin: 0;
+  color: black; /* Make the text black */
+  position: relative; /* Needed for the underline effect */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.modal-title::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  background: black; /* Color of the underline */
+  transition: width 0.3s;
+  left: 0;
+  bottom: -5px; /* Position the underline below the text */
+}
+
+.modal-title:hover::after {
+  width: 100%; /* Animate the underline to full width */
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  padding: 10px 20px;
+  border-top: 1px solid #ddd;
+}
+
+/* Task display styles */
+.task-display {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-display h2 {
+  font-size: 2rem;
+}
+
+.counter {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+.controls {
+  margin-top: 20px; /* Add margin to separate from task history */
+  display: flex;
+  justify-content: center;
+}
+
+.controls .btn {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Stopwatch styles */
+.stopwatch {
+  display: block;
+}
+
+.stopwatchText {
+  display: block;
+  text-align: center;
+}
+
+.stopwatch-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Timer display and controls */
+.timer {
+  display: block;
+}
+
+.timer .counter {
+  font-size: 3rem;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.timer .controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.timer .controls .btn {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.timer .controls input[type="number"] {
+  width: 60px;
+  text-align: center;
+}
+
+/* task history */
+.task-history {
+  padding: 20px;
+  border-left: 1px solid #ddd; /* Separate from task display */
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 300px; /* Set maximum height */
+  position: relative; /* Ensure relative positioning for pseudo-elements */
+}
+
+.task-history h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  position: sticky; /* Sticky positioning */
+  top: 0; /* Stick to the top */
+  background-color: #fff; /* Match background color for consistency */
+  z-index: 1; /* Ensure it's above scrollbar */
+  padding: 10px 20px; /* Padding for space */
+}
+
+.task-history .list-group {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px; /* Adjust the height as needed */
+  overflow-y: auto; /* Enable vertical scrolling within the list */
+}
+
+.task-history .list-group li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center; /* Center-align text within each list item */
+}
+
+.hidden {
+  display: none;
+}
+
+/* uiverse card */
+.card {
+  width: 280px;
+  height: 150px;
+  background: rgb(17, 4, 134);
+  border-radius: 15px;
+  display: flex;
+  color: white;
+  justify-content: center;
+  position: absolute; /* Change to absolute */
+  top: 85px; /* Adjust the positioning */
+  left: 20px; /* Adjust the positioning */
+  flex-direction: column;
+  background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 1000; /* Ensure it is above other content */
+}
+
+.time-text {
+  font-size: 50px;
+  margin-top: 0px;
+  margin-left: 15px;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.time-sub-text {
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.day-text {
+  font-size: 18px;
+  margin-top: 0px;
+  margin-left: 15px;
+  font-weight: 500;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.moon {
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover > .moon {
+  font-size: 23px;
+}
+
+/* uiverse random facts card */
+.card1 {
+  position: relative;
+  width: 220px;
+  height: 320px;
+  background: mediumturquoise;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 70px;
+  overflow: hidden;
+  text-align: center; /* Center text horizontally */
+  z-index: 100; /* Ensure it's below .card2 */
+}
+
+.card1::before,
+.card1::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: lightblue;
+  transition: all 0.5s;
+}
+
+.card1::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+
+.card1::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 15px;
+}
+
+.card1:hover::before,
+.card1:hover::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+
+.card2 {
+  position: fixed; /* Fixed position */
+  bottom: 20px; /* Distance from the bottom */
+  left: 20px; /* Distance from the left */
+  z-index: 2000; /* Ensure it's above other content */
+  width: fit-content;
+  height: fit-content;
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 25px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+  margin-bottom: 30px;
+}
+
+
+/* Social container styles */
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+}
+
+.socialContainer:hover {
+  transform: scale(1.1); /* Adjust as needed */
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: .3s;
+}
+/* twitter*/
+.containerTwo:hover {
+  background-color: #00acee;
+  transition-duration: .3s;
+}
+/* linkdin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: .3s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #043591;
+  transition-duration: .3s;
+}
