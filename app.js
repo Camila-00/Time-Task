@@ -8,6 +8,8 @@ app.set('view engine', 'ejs');
 // Serve static files from the "public" directory
 app.use(express.static('public'));
 
+app.use(express.urlencoded({ extended: true }));
+
 // Route to render the index.ejs file
 app.get('/', (req, res) => {
   res.render('index');
